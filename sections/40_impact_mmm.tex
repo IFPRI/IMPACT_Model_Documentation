@@ -363,10 +363,10 @@ The IMPACT demand elasticities are originally based on United States Department 
     \begin{aligned}
         QH_{c, h, cty} = QHDint_{c, h, cty} * WI_{c, cty} * QHDInt2_{c, h, cty} * \left(\frac{pcGDP_{h, cty}}{pcGDP0_{h, cty}}\right)^{I_{\varepsilon}} \\
         * \left(\frac{popH_{h, cty}}{popH0_{h, cty}}\right) \\
-        * \prod_{cc \neq c} \left(\frac{PC_{c, cty} * (1 - CSE_{c, cty})}{PC0_{c, cty} * (1 - CSE_{c, cty})}\right)^{F_{\varepsilon}}
+        * \prod_{cc \neq c} \left(\frac{PC_{c, cty} * (1 - CSE_{c, cty})}{PC0_{c, cty} * (1 - CSE0_{c, cty})}\right)^{F_{\varepsilon}}
     \end{aligned}
 \end{equation}
-where: \textcolor{red}{\textbf{check $\prod$ part with Tim, it should evaluate to 1 in model. Also own price response is missing in model}}
+where: 
 \begin{conditions}
  QH       &   Household food demand \\
  QHDInt   &   Initial household food demand \\
@@ -377,7 +377,7 @@ where: \textcolor{red}{\textbf{check $\prod$ part with Tim, it should evaluate t
  {I_{\varepsilon}}  & Income demand elasticuty \\
  popH     &   Household population \\
  popH0    &   Initial household population \\
- \prod_{cc \neq c} \left(\frac{PC_{c, cty} * (1 - CSE_{c, cty})}{PC0_{c, cty} * (1 - CSE_{c, cty})}\right)^{F_{\varepsilon}}    & Cross price response \\
+ \prod_{cc \neq c} \left(\frac{PC_{c, cty} * (1 - CSE_{c, cty})}{PC0_{c, cty} * (1 - CSE0_{c, cty})}\right)^{F_{\varepsilon}}    & Cross price response \\
  {F_{\varepsilon}} & Price demand elasticity \\
  h          &   Household type (urban or rural) \\
  c, cc      &   Commodity \\
