@@ -38,7 +38,7 @@ This repositpry is maintained by Abhijeet Mishra (A.Mishra@cgiar.org). For full 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the <decide licence> License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
