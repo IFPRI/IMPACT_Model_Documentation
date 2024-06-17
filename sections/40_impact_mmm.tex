@@ -1,5 +1,6 @@
 \clearpage
 \section{IMPACT multimarket model}
+\label{sec:impactMMM}
 
 The IMPACT model system, as described in the preceding sections, is organized around a core global partial equilibrium multimarket model of agricultural production, demand, trade, and prices. The multimarket model simulates the operation of national and global markets for agricultural commodities, solving for equilibrium prices and quantities. The model specifies supply and demand behavior in all markets. This section describes the elements of that model.
 
@@ -584,8 +585,8 @@ If the equilibrium domestic price falls between the floor price of exports and t
 To start importing the domestic import price must equal the consumer price (global prices are lower than domestic prices), and to start exporting domestic prices must be equal to export prices (domestic prices are greater than global prices). In summary:
 
 \begin{itemize}
-    \item Import happens if $PC_{c, cty}$ $\leq$ $PM_{c, cty}$
-    \item Export happens if $PC_{c, cty}$ $\geq$ $PE_{c, cty}$
+    \item No import happens while $PM_{c, cty}$ $>$ $PC_{c, cty}$, imports begin at $PM_{c, cty}$ $\leq$ $PC_{c, cty}$
+    \item No export happens while $PC_{c, cty}$ $>$ $PE_{c, cty}$, exports begin at $PC_{c, cty}$ $\leq$ $PE_{c, cty}$
     \item Domestic trade happens if $PE_{c, cty}$ $\leq$ $PC_{c, cty}$ $\leq$ $PM_{c, cty}$
 \end{itemize}
 

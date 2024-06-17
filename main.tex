@@ -1,3 +1,4 @@
+\PassOptionsToPackage{table}{xcolor}
 \documentclass[12pt, bookmarks=true, colorlinks=true, allcolors=blue, twoside, letter]{report}
 \usepackage[top=25mm, bottom=25mm, bindingoffset=0mm, inner=25mm, outer=25mm]{geometry}
 \usepackage{float}
@@ -11,6 +12,9 @@
 
 \usepackage{longtable}
 \usepackage{tabularray}
+\usepackage{ragged2e}
+\usepackage{array}
+\usepackage{pdflscape}
 
 \usepackage{rotating}
 \usepackage[labelfont=bf]{caption} 
@@ -21,7 +25,7 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
-\usepackage[backend=bibtex, style=author year]{biblatex}
+\usepackage[backend=bibtex, style=author year, maxbibnames=20]{biblatex}
 \addbibresource{references.bib}
 \renewcommand{\thesection}{\arabic{section}}
 
@@ -101,26 +105,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{table}{0}
 \setcounter{figure}{0}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % lables are withing appendix
 \renewcommand{\thetable}{A\arabic{table}}
 \renewcommand{\thefigure}{A\arabic{figure}}
 \input{appendix/a}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{table}{0}
+\setcounter{figure}{0}
 \renewcommand{\thetable}{B\arabic{table}}
 \renewcommand{\thefigure}{B\arabic{figure}}
 \input{appendix/b}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{table}{0}
+\setcounter{figure}{0}
 \renewcommand{\thetable}{C\arabic{table}}
 \renewcommand{\thefigure}{C\arabic{figure}}\textbf{}
 \input{appendix/c}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{table}{0}
+\setcounter{figure}{0}
 \renewcommand{\thetable}{D\arabic{table}}
 \renewcommand{\thefigure}{D\arabic{figure}}
 \input{appendix/d}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{table}{0}
+\setcounter{figure}{0}
 \renewcommand{\thetable}{E\arabic{table}}
 \renewcommand{\thefigure}{E\arabic{figure}}
 \input{appendix/e}
