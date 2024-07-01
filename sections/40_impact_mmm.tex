@@ -6,14 +6,10 @@ The IMPACT model system, as described in the preceding sections, is organized ar
 
 \subsection{Commodity supply}
 
-IMPACT since update to version 3 carries a full implementation of an activity-commodity framework, borrowed from the CGE literature \parencite{lofgren2002standard}, to organize the supply side, incorporating value chains from crops to produced commodities. This framework allows for a general approach that can encompass a wide array of commodities and different technologies, methods, or both in producing these commodities. Currently in IMPACT, there are three main types of commodities (crops, livestock, and processed) that each has a unique method of production but that can still be summarized by the activity-commodity framework. This framework is described in Box 4.1. 
+IMPACT since update to version 3 carries a full implementation of an activity-commodity framework, borrowed from the CGE literature \parencite{lofgren2002standard}, to organize the supply side, incorporating value chains from crops to produced commodities. This framework allows for a general approach that can encompass a wide array of commodities and different technologies, methods, or both in producing these commodities. Currently in IMPACT, there are three main types of commodities (crops, livestock, and processed), and each has a unique method of production but that can still be summarized by the activity-commodity framework. This framework is described in Box 4.1. 
 
 \begin{tcolorbox}[title=Box 4.1. Activity-Commodity framework in IMPACT.]
 The key to understanding the activity-commodity framework is to separate the process (activity) from the output of this process (commodity). 
-
-\vspace{5pt}
-
-As an example, a soybean farm is an activity in the sense that it demands a variety of inputs such as land, fertilizer, seeds, and labor, and it produces soybeans, which are demanded and traded in commodity markets (domestic and potentially international). 
 
 \vspace{5pt}
 
@@ -41,27 +37,37 @@ Equation \ref{eq:landsupply} describes the land supply in IMPACT. The supply of 
 
 \begin{equation}
     \label{eq:landsupply}
-    QFS_{fpu, lnd} = QFSInt_{fpu, lnd} * QFSInt2_{fpu, lnd}
+    QFS_{fpu, lnd} = QFSInt_{fpu, lnd} * QFSInt2_{fpu, lnd} * QFSInt3_{fpu, lnd} * \left (WF_{fpu, lnd}\right )^{L_{\gamma}} 
 \end{equation}
 where:
 \begin{conditions}
  QFS        &   Land supply \\
  QFSInt     &   Land supply intercept i.e., base year supply of land \\   
- QFSInt2    &   Land supply growth multiplier \\   
+ QFSInt2    &   Endogenous land supply growth multiplier \\   
+ QFSInt3    &   Exogenous land supply growth multiplier \\   
+ WF         &   Shadow price index of land \\
+ L_{\gamma} &   Elasticity of land supply \\
  fpu        &   Food production unit \\   
  lnd        &   Land type (irrigated or rainfed)  \\   
 \end{conditions}
 
-Additionally, equation \ref{eq:landsupply2} is applied at the end of each year before solving for land supply for a new year.
+Additionally, equations \ref{eq:landsupply2a} and \ref{eq:landsupply2b} are applied at the end of each year before solving for land supply for a new year. Note that the index \textit{t} and \textit{t+1} for the simulation time step are only illustrative in equations \ref{eq:landsupply2a} and \ref{eq:landsupply2b} to denote updates of parameters in IMPACT from one year to another.
+\begin{subequations}
+    \begin{equation}
+        \label{eq:landsupply2a}
+        QFSInt2_{fpu, lnd, t+1} = QFSInt2_{fpu, lnd, t} * (1 + Landgr_{fpu, lnd}) 
+    \end{equation}
+    \begin{equation}
+       \label{eq:landsupply2b}
+       QFSInt3_{fpu, lnd, t+1} =  \left ( \frac{\sum_{t-3}^{t} WF_{fpu, lnd, t}}{3} \right )^{L_{\gamma, t}} 
+    \end{equation}
+\end{subequations}
 
-\begin{equation}
-    \label{eq:landsupply2}
-    QFSInt2_{fpu, lnd, t+1} = QFSInt2_{fpu, lnd, t} * (1 + Landgr_{fpu, lnd}) * \left ( \frac{WF_{fpu, lnd, t}}{\sum_{t=1}^{3} WF_{fpu, lnd, t}/{3}} \right )^{L_{\gamma}} 
-\end{equation}
 where:
 \begin{conditions}
  QFSInt2    &   Land supply growth multiplier \\   
  Landgr     &   Exogenous land supply growth rate \\   
+ WF         &   Shadow price index of land \\
  \sum_{t=1}^{3} WF_{fpu, lnd, t}/{3} & Average shadow price of past three years \\
  L_{\gamma} &   Elasticity of land supply \\
  fpu        &   Food production unit \\   
@@ -106,7 +112,7 @@ where:
  lnd        &   Land type (irrigated or rainfed)  \\
 \end{conditions}
 
-Assumptions for exogenous trends are determined by a combination of historical changes in land use and expert judgment on potential future regional dynamics as described in equation \ref{eq:areaint2}. They are represented as compound growth from the base and are applied between years.
+Assumptions for exogenous trends are determined by a combination of historical changes in land use and expert judgment on potential future regional dynamics as described in equation \ref{eq:areaint2}. They are represented as compound growth from the base and are applied between years. Note that the index \textit{t} and \textit{t+1} for the simulation time step is only illustrative in equation \ref{eq:areaint2} to denote updates of parameters in IMPACT from one year to another.
 
 \begin{equation}
     \label{eq:areaint2}
@@ -145,7 +151,7 @@ Second, the IMPACT model includes a short-run (annual), endogenous, response of 
 
 Third, climate is assumed to affect yields through two mechanisms. The first is through the effects of changes in temperature and weather due to climate change on crop yields for rainfed and irrigated crops, as calculated from the solution of a crop simulation model (DSSAT) for different climate change scenarios. These crop simulations vary by crop type. The DSSAT model is run with detailed time, geographic, and crop disaggregation for different climate change scenarios that are downscaled to include weather variation in small geographic areas. This analysis gives changes in average yields due to climate change that are then averaged to generate yield shocks by crop and region (FPU) in the IMPACT model. These long-run climate scenarios generate yield shocks that are assumed to follow simple trends over time and do not consider extreme events such as droughts or floods.
 
-The fourth mechanism by which climate change affects yields is through variation in water availability for agriculture year by year in different climate scenarios. This mechanism is modeled through the use of the IMPACT water models. These include (1) a global hydrology model that determines runoff to the river basins included in the IMPACT model; (2) water basin management models for each FPU that optimally allocate available water to competing non-agricultural and agricultural uses, including irrigation; and (3) a water allocation and stress model that allocates available irrigation water to crops and, when the water supply is less than demand by crop, computes the impact of the water shortage on crop yields, accounting for differences among crops and varieties. These yields shocks are then passed to the IMPACT model, affecting year-to-year crop yields.
+The fourth mechanism by which climate change affects yields is through variation in water availability for agriculture year by year in different climate scenarios. This mechanism is modeled through the use of the IMPACT water models. These include (1) a global hydrology model that determines runoff to the river basins included in the IMPACT model; (2) water basin management models for each FPU that optimally allocate available water to competing non-agricultural and agricultural uses, including irrigation; and (3) a water allocation and stress model that allocates available irrigation water to crops and, when the water supply is less than demand by crop, computes the impact of the water shortage on crop yields, accounting for differences among crops and varieties. These yields shocks are then passed to the IMPACT model, affecting year-to-year crop yields as shown in equation \ref{eq:yields}.
 
 \begin{equation}
     \label{eq:yields}
@@ -189,7 +195,7 @@ where:
  tech       &   Crop production technology \\ 
 \end{conditions}
 
-Final crop production for each FPU and activity or crop (j) is estimated as the product of the solution for its respective area and yield equations, with national production equal to the summation of the production in all of the relevant FPUs in that country. This is modeled as shown in equation \ref{eq:qs}
+Final crop production for each FPU and activity or crop (j) is estimated as the product of the solution for its respective area and yield equations, with national production equal to the summation of the production in all of the relevant FPUs in that country. This is modeled as shown in equation \ref{eq:qs}.
 
 \begin{equation}
     \label{eq:qs}
@@ -521,7 +527,14 @@ IMPACT prices are in constant base year US dollars (for IMPACT 3.6,  2020 is the
 \begin{figure}[hbt!]
   \centering
   \centerline{\includegraphics[width=0.8\linewidth]{plots/Slide2.png}}
-  \caption{Price structure in IMPACT.}
+  \caption[Price structure in IMPACT.]{Price structure in IMPACT.\\ 
+  MMJ is \textbf{M}arketing \textbf{M}argins for activities (\textbf{j}).\\
+  PSE is \textbf{P}roducer \textbf{S}ubsidy \textbf{E}quivalents.\\
+  CSE is \textbf{C}onsumer \textbf{S}ubsidy \textbf{E}quivalents. \\
+  MMM is \textbf{M}arketing \textbf{M}argins for I\textbf{m}ports \\ 
+  MME is \textbf{M}arketing \textbf{M}argins for \textbf{E}xports \\
+  TM is \textbf{T}ariffs on \textbf{I}mports, and,\\
+  TE is \textbf{T}axes on \textbf{E}xports.}
   \label{fig:price_str}
 \end{figure}
 

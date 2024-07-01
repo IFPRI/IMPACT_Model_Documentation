@@ -25,9 +25,20 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
+\usepackage{comment}
+\usepackage{pdfpages}
+
 \usepackage[backend=bibtex, style=author year, maxbibnames=20]{biblatex}
 \addbibresource{references.bib}
 \renewcommand{\thesection}{\arabic{section}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{xcolor}
+%\usepackage{sectsty}
+%\chapterfont{\color{green}}  % sets colour of chapters
+%\sectionfont{\color{green}}  % sets colour of sections
+%\subsectionfont{\color{green}}  % sets colour of sections
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{secnumdepth}{5}
 
@@ -66,7 +77,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{sections/01_title}
+%deactivate maketitle if Using IFPRI's cover page
 \maketitle
+% Use IFPRI's cover page (page= is which page number to insert, in this case first and only page)
+%\includepdf[pages={1}, scale=1.02]{ReportCover_IMPACT_2024.pdf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{sections/02_information}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

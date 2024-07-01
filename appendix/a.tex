@@ -11,7 +11,8 @@
 % Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
 \begin{landscape}
 \begin{longtable}{lllll}
-\caption{Country and region codes and names in IMPACT along with their FAO counterparts}
+\caption[Country and region codes and names in IMPACT along with their FAO counterparts]{Country and region codes and names in IMPACT along with their FAO counterparts.\\
+\textcolor{gray}{See \href{https://www.fao.org/faostat/en/\#definitions}{https://www.fao.org/faostat/en/\#definitions} (\textit{section "Country/Region"}) for full list of FAO codes and definitions.}}
 \label{tab:cty}\\
 \hline
 \textbf{\begin{tabular}[c]{@{}l@{}}FAO\\ country code\end{tabular}} &
@@ -254,16 +255,60 @@
 351 & China                                       & CHM & China Hong Kong Macao Taiwan             &  \\ \hline
 \end{longtable}
 \end{landscape}
-
+\clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
 \begin{landscape}
   \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=1\linewidth]{plots/maps/cty.png}
-    \caption[Map of countries/regions in IMPACT]{Map of countries/regions in IMPACT}
-    \label{fig:cty}
+    \includegraphics[width=1\textwidth]{plots/maps/regionplot_CentralandWestAsiaandNorthAfrica.png}
+    \caption[Map of countries/regions in Central and West Asia and North Africa]{Map of countries/regions in Central and West Asia and North Africa. \textcolor{lightgray}{Note: Illustrative map only. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:cty_cwana}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=\textwidth]{plots/maps/regionplot_WestandCentralAfrica.png}
+    \caption[Map of countries/regions in West and Central Africa]{Map of countries/regions in West and Central Africa. \textcolor{lightgray}{Note: Illustrative map only. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:cty_wca}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=\textwidth]{plots/maps/regionplot_LatinAmericaandtheCaribbean.png}
+    \caption[Map of countries/regions in Latin America and the Caribbean]{Map of countries/regions in Latin America and the Caribbean. \textcolor{lightgray}{Note: Illustrative map only. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:cty_lac}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=\textwidth]{plots/maps/regionplot_SouthAsia.png}
+    \caption[Map of countries/regions in South Asia]{Map of countries/regions in South Asia. \textcolor{lightgray}{Note: Illustrative map only. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:cty_sa}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=\textwidth]{plots/maps/regionplot_EastandSouthernAfrica.png}
+    \caption[Map of countries/regions in East and Southern Africa]{Map of countries/regions in East and Southern Africa. \textcolor{lightgray}{Note: Illustrative map only. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:cty_esa}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=\textwidth]{plots/maps/regionplot_SoutheastAsiaandthePacific.png}
+    \caption[Map of countries/regions in East and Southeast Asia and the Pacific]{Map of countries/regions in Southeast Asia and the Pacific. \textcolor{lightgray}{Note: Illustrative map only. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations. Small Atlantic and Pacific islands are not plotted. See Table \ref{tab:cty} for full list of countries/regions.}}
+    \label{fig:cty_sap}
   \end{figure}
 \end{landscape}
 
@@ -637,89 +682,53 @@ ZHJ\_CHM & Zhu Jiang basin               & China Plus                   & CHM \\
 \begin{landscape}
   \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=1\linewidth]{plots/maps/CWANA.png}
-    \caption[Map of FPUs in Central and West Asia and North Africa]{Map of FPUs in Central and West Asia and North Africa}
-    \label{fig:cwana}
+    \includegraphics[width=1.2\textwidth]{plots/maps/fpuplot_CentralandWestAsiaandNorthAfrica.png}
+    \caption[Map of FPUs in Central and West Asia and North Africa]{Map of FPUs in Central and West Asia and North Africa. \textcolor{lightgray}{Note: Illustrative map only. National boundaries not shown. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:fpu_cwana}
   \end{figure}
 \end{landscape}
 
 \begin{landscape}
   \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=1\linewidth]{plots/maps/EAP.png}
-    \caption[Map of FPUs in East Asia, Australia and New Zealand]{Map of FPUs in East Asia, Australia and New Zealand}
-    \label{fig:EAP}
+    \includegraphics[width=1.2\textwidth]{plots/maps/fpuplot_WestandCentralAfrica.png}
+    \caption[Map of FPUs in West and Central Africa]{Map of FPUs in West and Central Africa. \textcolor{lightgray}{Note: Illustrative map only. National boundaries not shown. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:fpu_wca}
   \end{figure}
 \end{landscape}
 
 \begin{landscape}
   \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=1\linewidth]{plots/maps/ESA.png}
-    \caption[Map of FPUs in East and Southern Africa]{Map of FPUs in East and Southern Africa}
-    \label{fig:ESA}
+    \includegraphics[width=1.2\textwidth]{plots/maps/fpuplot_LatinAmericaandtheCaribbean.png}
+    \caption[Map of FPUs in Latin America and the Caribbean]{Map of FPUs in Latin America and the Caribbean. \textcolor{lightgray}{Note: Illustrative map only. National boundaries not shown. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:fpu_lac}
   \end{figure}
 \end{landscape}
 
 \begin{landscape}
   \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=1\linewidth]{plots/maps/eur.png}
-    \caption[Map of FPUs in Europe]{Map of FPUs in Europe}
-    \label{fig:eur}
+    \includegraphics[width=1.2\textwidth]{plots/maps/fpuplot_SouthAsia.png}
+    \caption[Map of FPUs in South Asia]{Map of FPUs in South Asia. \textcolor{lightgray}{Note: Illustrative map only. National boundaries not shown. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:fpu_sa}
   \end{figure}
 \end{landscape}
 
 \begin{landscape}
   \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=1\linewidth]{plots/maps/fsu.png}
-    \caption[Map of FPUs in Former Soviet Union]{Map of FPUs in Former Soviet Union}
-    \label{fig:fsu}
+    \includegraphics[width=1.2\textwidth]{plots/maps/fpuplot_EastandSouthernAfrica.png}
+    \caption[Map of FPUs in East and Southern Africa]{Map of FPUs in East and Southern Africa. \textcolor{lightgray}{Note: Illustrative map only. National boundaries not shown. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.}}
+    \label{fig:fpu_esa}
   \end{figure}
 \end{landscape}
 
 \begin{landscape}
   \begin{figure}[hbt!]
     \centering
-    \includegraphics[width=1\linewidth]{plots/maps/lac.png}
-    \caption[Map of FPUs in Latin American and Caribbean countries]{Map of FPUs in Latin American and Caribbean countries}
-    \label{fig:lac}
-  \end{figure}
-\end{landscape}
-
-\begin{landscape}
-  \begin{figure}[hbt!]
-    \centering
-    \includegraphics[width=1\linewidth]{plots/maps/na.png}
-    \caption[Map of FPUs in North America (excl. Mexico)]{Map of FPUs in North America (excl. Mexico)}
-    \label{fig:na}
-  \end{figure}
-\end{landscape}
-
-\begin{landscape}
-  \begin{figure}[hbt!]
-    \centering
-    \includegraphics[width=1\linewidth]{plots/maps/sa.png}
-    \caption[Map of FPUs in South Asia]{Map of FPUs in South Asia}
-    \label{fig:sa}
-  \end{figure}
-\end{landscape}
-
-\begin{landscape}
-  \begin{figure}[hbt!]
-    \centering
-    \includegraphics[width=1\linewidth]{plots/maps/sea.png}
-    \caption[Map of FPUs in South East Asia and Pacific]{Map of FPUs in South East Asia and Pacific}
-    \label{fig:sea}
-  \end{figure}
-\end{landscape}
-
-\begin{landscape}
-  \begin{figure}[hbt!]
-    \centering
-    \includegraphics[width=1\linewidth]{plots/maps/wca.png}
-    \caption[Map of FPUs in West and Central Africa]{Map of FPUs in West and Central Africa}
-    \label{fig:wca}
+    \includegraphics[width=1.2\textwidth]{plots/maps/fpuplot_SoutheastAsiaandthePacific.png}
+    \caption[Map of FPUs in East and Southeast Asia and the Pacific]{Map of FPUs in Southeast Asia and the Pacific. \textcolor{lightgray}{Note: Illustrative map only. National boundaries not shown. This documentation remains neutral with regard to jurisdictional claims in published maps and institutional affiliations. Small Atlantic and Pacific islands are not plotted. See Table \ref{tab:fpu} for full list of FPUs.}}
+    \label{fig:fpu_sap}
   \end{figure}
 \end{landscape}
