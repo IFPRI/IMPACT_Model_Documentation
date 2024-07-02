@@ -85,10 +85,19 @@
 \input{sections/02_information}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
+\addtocontents{toc}{
+\protect\thispagestyle{empty}} 
+\thispagestyle{empty} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \listoffigures
+\addtocontents{lof}{
+\protect\thispagestyle{empty}} 
+\thispagestyle{empty} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \listoftables
+\addtocontents{lot}{
+\protect\thispagestyle{empty}} 
+\thispagestyle{empty} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{sections/03_abstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,6 +135,7 @@
 % lables are withing appendix
 \renewcommand{\thetable}{A\arabic{table}}
 \renewcommand{\thefigure}{A\arabic{figure}}
+\label{appendixA}
 \input{appendix/a}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{table}{0}
