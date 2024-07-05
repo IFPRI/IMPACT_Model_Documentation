@@ -29,7 +29,7 @@ The framework described in box 4.1 allows for potentially complex interlinking o
 
 Crop production in IMPACT is simulated through area\footnote{In IMPACT, area is treated as harvested area, which is the total area planted and harvested within a year, and may include multicropping or multiple harvests and differ from total arable land or reported physical area.} and yield response functions. The choice of specifying crop production in this way has a long history in IMPACT and facilitates interaction with commodity experts and land-use specialists, who work in natural units (hectares, tons per hectare). Crop production in IMPACT is specified sub-nationally with the area and yield functions at the level of FPUs. This regional disaggregation permits linking with water models and provides the added benefit of smaller geographical units for aggregating climate change results, which can vary significantly from one location to another. Land used for crop production is divided into irrigated and rainfed systems, capturing the significant differences in yields observed across these cultivation systems and linking directly with the water models, which treat irrigated and rainfed water supplies separately.
 
-A new feature of IMPACT version 3 and above is the implementation of a land market to manage competing demands for agricultural land from different crops, as well as providing new linkage points to land-use models that work with broader land-use changes, such as conversion of forest to grasslands and agricultural land. It also allows us to separate total area supply (irrigated and rainfed) from individual crop area demands and allows equilibrium conditions to determine the best economic use of the available land. The total supply of land is assumed to be a function of the scarcity value or shadow price index of land, which can also be considered a summary of changes in crop prices. The shadow price (WF) is indexed to 1 in the first year and changes based on changing demands from all crops for land area.
+A new feature of IMPACT version 3 and above is the implementation of a land market to manage competing demands for agricultural land from different crops, as well as providing new linkage points to land-use models that work with broader land-use changes, such as conversion of forest to grasslands and agricultural land. It also allows us to separate total area supply (irrigated and rainfed) from individual crop area demands and allows equilibrium conditions to determine the best economic use of the available land. The total supply of land is assumed to be a function of the scarcity value or shadow price index of land, which can also be considered a summary of changes in crop prices. The shadow price (\textit{WF} in equation \ref{eq:landsupply}) is indexed to 1 in the first year and changes based on changing demands from all crops for land area.
 
 \subsubsection{Equations}
 
@@ -381,7 +381,7 @@ where:
  QHDInt2  &   Demand adjuster for implementing change in diets \\
  pcGDP    &   Per capita GDP \\
  pcGDP0   &   Initial per capita GDP \\
- {I_{\varepsilon}}  & Income demand elasticuty \\
+ {I_{\varepsilon}}  & Income demand elasticity \\
  popH     &   Household population \\
  popH0    &   Initial household population \\
  \prod_{cc \neq c} \left(\frac{PC_{c, cty} * (1 - CSE_{c, cty})}{PC0_{c, cty} * (1 - CSE0_{c, cty})}\right)^{F_{\varepsilon}}    & Cross price response \\
@@ -460,7 +460,7 @@ where:
  {OI_{\varepsilon}} &   Income demand elasticity for other demand \\
  {OP_{\varepsilon}} &   Price demand elasticity for other demand \\
  PC                 &   Consumer price   \\
- PC0                &   Initial cponsumer price   \\
+ PC0                &   Initial consumer price   \\
  c,cc               &   Commodity \\
  cty                &   Countries \\
 \end{conditions}

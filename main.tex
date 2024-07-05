@@ -29,6 +29,8 @@
 \usepackage{comment}
 \usepackage{pdfpages}
 
+\usepackage{multicol}
+
 \usepackage[backend=bibtex, style=author year, maxbibnames=20]{biblatex}
 \addbibresource{references.bib}
 \renewcommand{\thesection}{\arabic{section}}
@@ -80,11 +82,14 @@
 \input{sections/01_title}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %deactivate maketitle if Using IFPRI's cover page
-\maketitle
+%\maketitle
 % Use IFPRI's cover page (page= is which page number to insert, in this case first and only page)
-%\includepdf[pages={1}, scale=1.02]{ReportCover_IMPACT_2024.pdf}
+\includepdf[pages={1}, scale=1.01]{ReportCover_IMPACT_2024.pdf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{sections/02_information}
+\input{sections/02a_information}
+\input{sections/02b_authors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{sections/02c_copyright_and_citation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
 \addtocontents{toc}{
@@ -166,6 +171,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\AtNextBibliography{\footnotesize}
+\setlength\bibitemsep{1.5\itemsep}
+\begin{multicols}{2}
 \printbibliography
+\end{multicols}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
