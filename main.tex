@@ -1,5 +1,5 @@
 \PassOptionsToPackage{table}{xcolor}
-\documentclass[12pt, bookmarks=true, colorlinks=true, allcolors=blue, twoside, letter]{report}
+\documentclass[11pt, bookmarks=true, colorlinks=true, allcolors=blue, twoside, letter]{report}
 \usepackage[top=25mm, bottom=25mm, bindingoffset=0mm, inner=25mm, outer=25mm]{geometry}
 \usepackage{float}
 \setlength\parindent{0pt}
@@ -73,6 +73,13 @@
 
 %%%%%%%%%%%%%%% Page distribution fix
 \raggedbottom
+
+%%%%%%%%%%%%%%%% Font options
+%\usepackage{cmbright}
+\usepackage[sfdefault,light]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -178,4 +185,5 @@
 \printbibliography
 \end{multicols}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{document}
